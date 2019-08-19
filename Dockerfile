@@ -1,4 +1,4 @@
-FROM sckyzo/nginx-php:7.3
+FROM wonderfall/nginx-php:7.2
 
 ARG NEXTCLOUD_VERSION=16.0.4
 ARG GPG_nextcloud="2880 6A87 8AE4 23A2 8372  792E D758 99B9 A724 937A"
