@@ -2,8 +2,6 @@
 
 ## sckyzo/nextcloud
 
-This image is based on [Wonderfall](https://github.com/Wonderfall/docker-nextcloud) nextcloud dockerfile.
-
 ### Features
 
 * Based on Alpine Linux.
@@ -30,8 +28,8 @@ This image is based on [Wonderfall](https://github.com/Wonderfall/docker-nextclo
 - **GPG_nextcloud** : signing key fingerprint
 
 ### Environment variables
-- **UID** : nextcloud user id *(default : 991)*
-- **GID** : nextcloud group id *(default : 991)*
+- **UID** : nextcloud user id *(default : 1000)*
+- **GID** : nextcloud group id *(default : 998)*
 - **UPLOAD_MAX_SIZE** : maximum upload size *(default : 10G)*
 - **APC_SHM_SIZE** : apc memory size *(default : 128M)*
 - **OPCACHE_MEM_SIZE** : opcache memory size in megabytes *(default : 128)*
