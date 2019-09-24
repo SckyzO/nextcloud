@@ -5,7 +5,7 @@
 ### Features
 
 * Based on Alpine Linux.
-* Bundled with nginx and PHP 7.x (sckyzo/nginx-php image).
+* Bundled with nginx and PHP 7.3 (sckyzo/nginx-php image).
 * Automatic installation using environment variables.
 * Package integrity (SHA512) and authenticity (PGP) checked during building process.
 * Data and apps persistence.
