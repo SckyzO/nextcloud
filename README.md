@@ -5,7 +5,7 @@
 ### Features
 
 * Based on Alpine Linux.
-* Bundled with nginx and PHP 7.x (wonderfall/nginx-php image).
+* Bundled with nginx and PHP 7.x (sckyzo/nginx-php image).
 * Automatic installation using environment variables.
 * Package integrity (SHA512) and authenticity (PGP) checked during building process.
 * Data and apps persistence.
@@ -20,7 +20,6 @@
 ### Tags
 * **latest** : latest stable version. (recommanded)
 * **16** : latest 16.x version (currently stable)
-* **16.0.x** : Specific 16.0.x version
 
 ### Build-time variables
 - **NEXTCLOUD_VERSION** : version of nextcloud
@@ -114,7 +113,7 @@ I advise you to use [docker-compose](https://docs.docker.com/compose/), which is
 #### Docker-compose file
 Don't copy/paste without thinking! It is a model so you can see how to do it correctly.
 
-**This docker-compose file work with [my traefik container](https://github.com/SckyzO/containers/tree/master/traefik)**
+**This docker-compose file work with [my traefik v1.7 container](https://github.com/SckyzO/containers/tree/master/traefik)** (do not work with traefik v2)
 
 My `/etc/environment` file
 ```
