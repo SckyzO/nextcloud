@@ -29,7 +29,6 @@ RUN apk -U upgrade \
     ca-certificates \
     libsmbclient \
     tzdata \
- && pecl channel-update pecl.php.net \
  && pecl install \
     smbclient \
     apcu \

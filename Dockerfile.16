@@ -66,6 +66,6 @@ EXPOSE 8888
 
 LABEL description="Nextcloud gives you access to all your files wherever you are. Nextcloud is server software for creating file hosting services" \
       nextcloud="Nextcloud v${NEXTCLOUD_VERSION}" \
-      maintainer="SckyzO <sckyzo@gmail.com>"
+      maintainer="SckyzO <https://www.github.com/sckyzo>"
 
 CMD ["run.sh"]
