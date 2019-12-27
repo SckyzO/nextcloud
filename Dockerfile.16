@@ -18,6 +18,7 @@ RUN apk -U upgrade \
  && apk add -t build-dependencies \
     gnupg \
     tar \
+    oniguruma \
     build-base \
     autoconf \
     automake \
