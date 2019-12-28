@@ -1,4 +1,4 @@
-FROM sckyzo/nginx-php:7.4
+FROM sckyzo/nginx-php:7.3
 
 ARG NEXTCLOUD_VERSION=17.0.2
 ARG GPG_nextcloud="2880 6A87 8AE4 23A2 8372  792E D758 99B9 A724 937A"
@@ -19,6 +19,8 @@ RUN apk -U upgrade \
     gnupg \
     tar \
     oniguruma \
+    oniguruma-dev \
+    sqlite-libs \
     build-base \
     autoconf \
     automake \
