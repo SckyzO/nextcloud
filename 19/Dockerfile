@@ -1,6 +1,6 @@
-FROM sckyzo/nginx-php:7.3
+FROM sckyzo/nginx-php:7.4
 
-ARG NEXTCLOUD_VERSION=18.0.6
+ARG NEXTCLOUD_VERSION=19.0.0
 ARG GPG_nextcloud="2880 6A87 8AE4 23A2 8372  792E D758 99B9 A724 937A"
 
 ENV UID=1000 GID=998 \
@@ -8,9 +8,9 @@ ENV UID=1000 GID=998 \
     APC_SHM_SIZE=128M \
     OPCACHE_MEM_SIZE=128 \
     MEMORY_LIMIT=512M \
-    CRON_PERIOD=15m \
+    CRON_PERIOD=5m \
     CRON_MEMORY_LIMIT=1g \
-    TZ=Europe/Paris \
+    TZ=Etc/UTC \
     DB_TYPE=sqlite3 \
     DOMAIN=localhost
 
@@ -18,27 +18,28 @@ RUN apk -U upgrade \
  && apk add -t build-dependencies \
     gnupg \
     tar \
-    oniguruma \
-    oniguruma-dev \
-    sqlite-libs \
     build-base \
     autoconf \
     automake \
     pcre-dev \
     libtool \
     samba-dev \
+    imagemagick-dev \
  && apk add \
     libressl \
     ca-certificates \
     libsmbclient \
     tzdata \
- && pecl channel-update pecl.php.net \
+    imagemagick \
+    ffmpeg \
  && pecl install \
     smbclient \
     apcu \
     redis \
+    imagick \
  && echo "extension=smbclient.so" > /php/conf.d/smbclient.ini \
  && echo "extension=redis.so" > /php/conf.d/redis.ini \
+ && echo "extension=imagick.so" > /php/conf.d/imagick.ini \
  && mkdir /nextcloud \
  && cd /tmp \
  && NEXTCLOUD_TARBALL="nextcloud-${NEXTCLOUD_VERSION}.tar.bz2" \
