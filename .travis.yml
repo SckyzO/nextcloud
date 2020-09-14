@@ -1,0 +1,41 @@
+language: bash
+
+dist: bionic
+
+before_install:
+    - curl -sf https://test.docker.com | sh
+    - docker --version
+  
+env:
+  global:
+    - DOCKER_CLI_EXPERIMENTAL=enabled
+    - PLATFORMS=linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
+  matrix:
+    - VARIANT=16
+    - VARIANT=17
+    - VARIANT=18
+    - VARIANT=19
+  
+stages:
+  - name: test
+    if: tag IS present OR branch = master
+  - name: push
+    if: tag IS present OR branch = master
+  
+script:
+  - echo "$DOCKER_PASSWORD" | docker login -u sckyzo --password-stdin
+  - docker run --privileged linuxkit/binfmt:v0.8
+  - docker buildx create --use
+  - docker buildx build
+    --platform $PLATFORMS
+    --build-arg "NEXTCLOUD_VERSION"
+    --file "$VARIANT/Dockerfile"
+    --tag sckyzo/nextcloud_test:$NEXTCLOUD_VERSION
+    `if [ "$VARIANT" = "16" ]; then echo "--tag sckyzo/nextcloud_test:$VARIANT"; fi`
+    `if [ "$VARIANT" = "17" ]; then echo "--tag sckyzo/nextcloud_test:$VARIANT"; fi`
+    `if [ "$VARIANT" = "18" ]; then echo "--tag sckyzo/nextcloud_test:$VARIANT"; fi`
+    `if [ "$VARIANT" = "19" ]; then echo "--tag sckyzo/nextcloud_test:$VARIANT"; fi`
+    `if [ "$VARIANT" = "19" ]; then echo "--tag sckyzo/nextcloud_test:latest"; fi`
+    --push
+    .
+
