@@ -18,9 +18,12 @@
 * Environment variables provided (see below).
 
 ### Tags
-* **latest** : latest stable version. (recommanded)
-* **17** : latest 17.x version (currently stable)
-* **16** : latest 16.x version (older stable)
+* **latest** : latest stable version. (Currently 20)
+* **20** : latest 20.x version (stable)
+* **19** : latest 19.x version (stable)
+* **18** : latest 18.x version (stable)
+* **17** : latest 17.x version (unsupported!)
+* **16** : latest 16.x version (unsupported!)
 
 ### Build-time variables
 - **NEXTCLOUD_VERSION** : version of nextcloud
